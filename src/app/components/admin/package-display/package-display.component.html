@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Packages List</h4>
+                        <p class="card-category"><a href="/admin/package/add">Add New Package</a></p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>                                    
+                                        <th>Id</th>
+                                        <th>Tour</th>
+                                        <th>Title</th>
+                                        <th>Summary</th>
+                                        <th>Description</th>
+                                        <th>Duration</th>
+                                        <th>Cost</th>
+                                        <th>Featured</th>
+                                        <th>IsActive</th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let package of packages">
+                                        <td>{{package.packageid}}</td>
+                                        <td>{{package.tour}}</td>
+                                        <td>{{package.title}}</td>
+                                        <td>{{package.summary}}</td>
+                                        <td>{{package.description}}</td>
+                                        <td>{{package.duration}}</td>
+                                        <td>{{package.cost}}</td>
+                                        <td>{{package.featured}}</td>
+                                        <td>{{package.isactive}}</td>
+                                        <td><a href="/admin/package/{{package.packageid}}">View Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

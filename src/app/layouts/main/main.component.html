@@ -1,0 +1,239 @@
+
+<header>
+<div class="header-area">
+    <div id="sticky-header" class="main-header-area">
+        <div class="container-fluid">
+            <div class="header_bottom_border">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="assets/img/main/footer_logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="main-menu  d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+                                    <li><a class="active" href="/home">home</a></li>
+                                    <li><a href="/destinations/domestic">Domestic Tours</a></li>
+                                    <li><a href="/destinations/international">International Tours</a></li>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/contact">Contact</a></li>
+                                    <li><a href="https://www.incredibleindia.org/content/incredible-india-v2/en.html">Incredible India</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                        <div class="social_wrap d-flex align-items-center justify-content-end">                            
+                            <div class="social_links d-none d-xl-block">
+                                <ul *ngIf="!isloggedin">                                    
+                                    <li><a href="/register"> Register </a></li>
+                                    <li><a href="/login"> Login </a></li>
+                                </ul>
+                                <ul *ngIf="isloggedin">
+                                    <li><a href="/profile"> Welcome User </a></li>
+                                    <li><a href="/logout"> Logout </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="seach_icon">
+                        <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</header>
+<!-- header-end -->
+
+<router-outlet></router-outlet>
+
+<footer class="footer">
+    <div class="footer_top w-100">
+        <div class="container">
+            <div class="row">
+                <div class=" offset-md-4">
+                    <div class="footer_widget">
+                        <div class="footer_logo">
+                            <a href="#">
+                                <img src="assets/img/main/footer_logo.png" alt="">
+                            </a>
+                        </div>
+                        <p class="">Rohini, Sec-22, Delhi <br>
+                            <a href="#">+91 9745924967</a> <br>
+                            <a href="#">simran.walia1707@gmail.com</a>
+                        </p>
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="#" class="pl-0">
+                                        <i class="ti-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pl-0">
+                                        <i class="ti-twitter-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pl-0">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pl-0">
+                                        <i class="fa fa-pinterest"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pl-0">
+                                        <i class="fa fa-youtube-play"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Modal -->
+<div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="serch_form">
+        <input type="text" placeholder="Search" >
+        <button type="submit">search</button>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<button id="openSplashModal" #openSplashModal [hidden]="true" 
+ data-toggle="modal" data-target="#splashModal"></button>
+
+<div class="modal fade custom_search_pop" id="splashModal" tabindex="-1" role="dialog" aria-labelledby="splashModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="padding:50px;">
+            <div class="row">
+            <h4 class="mb-2">Please answer the following questions to help us in creating best packages for you.</h4>
+            </div>
+
+            <div class="row mt-3">
+            <h5>Please select your favorite movie genre?</h5>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="romantic" checked="">
+                    <label for="romantic"></label>
+                </div>
+                <p>Romantic</p>
+            </div>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="period" checked="">
+                    <label for="period"></label>
+                </div>
+                <p>Period</p>
+            </div>
+            </div>
+
+            <div class="row mt-3">
+            <h5>What type of food you like the most?</h5>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="rajashthani" checked="">
+                    <label for="rajashthani"></label>
+                </div>
+                <p>Rajashthani</p>
+            </div>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="gujrati" checked="">
+                    <label for="gujrati"></label>
+                </div>
+                <p>Gujrati</p>
+            </div>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="punjabi" checked="">
+                    <label for="punjabi"></label>
+                </div>
+                <p>Punjabi</p>
+            </div>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="continental" checked="">
+                    <label for="continental"></label>
+                </div>
+                <p>Continental</p>
+            </div>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="south" checked="">
+                    <label for="south"></label>
+                </div>
+                <p>South Indian</p>
+            </div>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="chinese" checked="">
+                    <label for="chinese"></label>
+                </div>
+                <p>Chinese</p>
+            </div>
+            <div class="switch-wrap d-flex justify-content-start ">
+                <div class="primary-checkbox">
+                    <input type="checkbox" id="italian" checked="">
+                    <label for="italian"></label>
+                </div>
+                <p>Italian</p>
+            </div>
+            </div>
+
+            <div class="row mt-3">
+                <h5>What interests excites you the most?</h5>
+                <div class="switch-wrap d-flex justify-content-start ">
+                    <div class="primary-checkbox">
+                        <input type="checkbox" id="hillclimbing" checked="">
+                        <label for="hillclimbing"></label>
+                    </div>
+                    <p>Hill Climbing</p>
+                </div>
+                <div class="switch-wrap d-flex justify-content-start ">
+                    <div class="primary-checkbox">
+                        <input type="checkbox" id="waterrafting" checked="">
+                        <label for="waterrafting"></label>
+                    </div>
+                    <p>Water Rafting</p>
+                </div>
+                <div class="switch-wrap d-flex justify-content-start ">
+                    <div class="primary-checkbox">
+                        <input type="checkbox" id="photography" checked="">
+                        <label for="photography"></label>
+                    </div>
+                    <p>Photography</p>
+                </div>
+            </div>
+    
+            <input type="submit" value="Submit" class="btn btn-info">
+
+        </div>
+    </div>
+</div>
+    

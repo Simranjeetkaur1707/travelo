@@ -1,0 +1,173 @@
+<div class="bradcam_area bradcam_bg_2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Destinations</h3>
+                    <!-- <p>Pixel perfect design with awesome contents</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popular_places_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div id="filterPanel" class="leftContainer appendRight50 row">
+                    <div class="appendBottom20 filterGroupSeparator">
+                        <div class="makeFlex spaceBetween appendBottom20">
+                            <h3>Preferences</h3>
+                        </div>
+                        <div class="appendBottom30">
+                            <h4 class="filterTitle">Hotel Category</h4>
+                            <div class="multiSelectContainer">
+                                <button type="button" [ngClass]="{'active': hotelRating === 3 }" class="multiSelect filterBtn" (click)="ChangeHotelRating(3)">3 <i class="fa fa-star" aria-hidden="true"></i> </button>
+                                <button type="button" [ngClass]="{'active': hotelRating === 4 }" class="multiSelect filterBtn" (click)="ChangeHotelRating(4)">4 <i class="fa fa-star" aria-hidden="true"></i> </button>
+                                <button type="button" [ngClass]="{'active': hotelRating === 5 }" class="multiSelect filterBtn" (click)="ChangeHotelRating(5)">5 <i class="fa fa-star" aria-hidden="true"></i> </button>
+                            </div>
+                        </div>
+                        <div class="appendBottom30">
+                            <h4 class="filterTitle">Flights</h4>
+                            <div class="singleSelectContainer">
+                                <button type="button" [ngClass]="{'active': flightIncluded === true }" class="singleSelect filterBtn" (click)="ChangeFlightOption(true)">With Flights</button>
+                                <button type="button" [ngClass]="{'active': flightIncluded=== false }" class="singleSelect filterBtn" (click)="ChangeFlightOption(false)">Without Flights</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appendBottom20 filterGroupSeparator">
+                        <div class="makeFlex spaceBetween appendBottom20">
+                            <h3>Refine Search</h3>
+                        </div>
+                        <div class="appendBottom20">
+                            <ul class="appliedFilters"></ul>
+                        </div>
+                        <div class="appendBottom30">
+                            <h4 class="filterTitle">Theme</h4>
+                            <mat-select [(ngModel)]='theme' (ngModelChange)="ChangeThemeOption()" multiple>
+                                <mat-option *ngFor="let category of categories" [value]="category.name">
+                                {{category.name}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="appendBottom30">
+                            <h4 class="filterTitle">
+                                Budget Per Person
+                            </h4>                            
+                            <ng5-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="priceOptions" (mouseup)="ChangePriceOption()"></ng5-slider>
+                        </div>
+                        <div class="appendBottom30">
+                            <h4 class="filterTitle">Duration</h4>
+                            <ng5-slider [(value)]="minDuration" [(highValue)]="maxDuration" [options]="durationOptions" (mouseup)="ChangeDurationOption()"></ng5-slider>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="filters mb_70">
+                        <h3>Applied Filters</h3>
+                        <!-- <div>
+                            <span *ngFor="let filtervalue of filters.theme"  (click)="RemoveFilter('theme',filtervalue);">Theme : {{filtervalue}} <i class="fa fa-close"></i></span>
+                        </div> -->
+                        <div *ngFor="let filter of filters | keyvalue">
+                            <span *ngFor="let filtervalue of filter.value"  (click)="RemoveFilter(filter.key,filtervalue);">{{filter.key}} : {{filtervalue}} <i class="fa fa-close"></i></span>
+                        </div>   
+                    </div>
+                    <div *ngFor="let package of packages" class="col-12">
+                        <div class="single_place p-3 row" style="height:280px;">
+                            <div class="thumb col-3 p-0">
+                                <img class="img-fluid" style="height:100%" src="{{package.imageurl}}" alt="">
+                            </div>                            
+                            <div class="place_info col-7 p-0 pl-3">
+                                <div class="mb-3">
+                                    <span class="badge bg-primary text-light p-2 mr-1" style="font-size:10px;font-weight: 300;" *ngFor="let category of package.category">
+                                        {{category}}
+                                    </span>
+                                </div>
+                                <a href="/package/{{package.packageid}}"><h3>{{package.title}}</h3></a>
+                                <p>{{package.tour}}</p>
+                                <div>
+                                    {{package.duration}}
+                                </div>
+                                <div>
+                                    <p>Included</p>
+                                </div>
+                                <div class="rating_days d-flex">
+                                    <span  class="d-flex justify-content-center align-items-center">
+                                         <span *ngFor="let inclusion of package.inclusion">
+                                            <span *ngIf="inclusion=='Hotels'" style="font-size:8px"><i class="fa fa-hotel px-1"></i> Hotels</span>
+                                            <span *ngIf="inclusion=='Flights'" style="font-size:8px"><i class="fa fa-plane px-1"></i> Flights</span>
+                                            <span *ngIf="inclusion=='Transfers'" style="font-size:8px"><i class="fa fa-car px-1"></i> Transfers</span>
+                                            <span *ngIf="inclusion=='Activities'" style="font-size:8px"><i class="fa fa-star px-1"></i> Activities</span>
+                                            <span *ngIf="inclusion=='SightSeeing'" style="font-size:8px"><i class="fa fa-eye px-1"></i> SightSeeing</span>
+                                            <span *ngIf="inclusion=='Meals'" style="font-size:8px"><i class="fa fa-cutlery px-1"></i> Meals</span>
+                                         </span> 
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-2" class="position-relative">
+                                <div class="position-absolute text-right" style="bottom:0px">
+                                    <div style="color:red;font-size:10px;font-weight:300;">Save {{package.cost*.10|currency:'₹ '}}</div>
+                                    <div style="font-size:14px;font-weight:300;text-decoration: line-through;">{{package.cost*1.10 | currency:'₹ '}}</div>
+                                    <div>{{package.cost | currency:'₹'}}</div>
+                                    <div style="font-size:8px;font-weight: 300;">Price Per Person</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="newletter_area overlay">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="newsletter_text">
+                            <h4>Subscribe Our Newsletter</h4>
+                            <p>Subscribe newsletter to get offers and about
+                                new places to discover.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mail_form">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="newsletter_field">
+                                        <input type="email" placeholder="Your mail" [(ngModel)]="subscriptionEmail">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="newsletter_btn">
+                                        <button class="boxed-btn4" type="button" data-toggle="modal" data-target="#subscribeModal" (click)="Subscribe();">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade custom_search_pop" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="serch_form" class="p-5" *ngIf="isSubscribed==false">
+            <h3>Thank you <span style="color:red">{{subscriptionEmail}}</span> for subscribing for Newsletter</h3>
+            <p>You will receive our latest offers and packages regularly in your email.</p>
+        </div>
+        <div class="serch_form" class="p-5" *ngIf="isSubscribed==true">
+            <h3><span style="color:red">{{subscriptionEmail}}</span> is already registered</h3>
+        </div>
+        </div>
+    </div>
+</div>
+    

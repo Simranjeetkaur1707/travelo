@@ -1,0 +1,49 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Packages List</h4>
+                        <p class="card-category"><a href="/admin/package/add">Add New Package</a></p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>                                    
+                                        <td>hid</td>
+                                        <td>hotelname</td>
+                                        <td>place</td>
+                                        <td>city</td>
+                                        <td>state</td>
+                                        <td>description</td>
+                                        <td>rating</td>
+                                        <td>url</td>
+                                        <td>isactive </td>
+                                        <td>Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let hotel of hotels">
+                                        <td>{{hotel.hotelid}}</td>
+                                        <td>{{hotel.name}}</td>
+                                        <td>{{hotel.place}}</td>
+                                        <td>{{hotel.city}}</td>
+                                        <td>{{hotel.state}}</td>
+                                        <td>{{hotel.description}}</td>
+                                        <td>{{hotel.rating}}</td>
+                                        <td>{{hotel.url}}</td>
+                                        <td>{{hotel.isactive}}</td>
+                                        <td><a href="/admin/hotel/{{hotel.hotelid}}">View Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

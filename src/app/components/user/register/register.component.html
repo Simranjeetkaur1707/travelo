@@ -1,0 +1,18 @@
+<div class="col-lg-6 offset-lg-3 col-md-3 my-5 p-5 register">
+    <h3 class="mb-30 text-center">Register</h3>
+    <form method="post">
+        <div class="mt-10">
+            <input class="border" [(ngModel)]="user.name" type="text" name="name" placeholder="Name" required="" class="single-input">
+        </div>
+        <div class="mt-10">
+            <input class="border" [(ngModel)]="user.email" name="email" placeholder="Email" required="" class="single-input">
+        </div>
+        <div class="mt-10">
+            <input class="border" [(ngModel)]="user.phone" type="text" name="phone" placeholder="Phone" required="" class="single-input">
+        </div>
+        <div class="mt-10">
+            <input class="border" [(ngModel)]="user.password" type="password" name="password" placeholder="Password" required="" class="single-input">
+        </div>
+        <input type="submit" value="Create Account" class="btn btn-info btn-block" (click)="Register()">
+    </form>
+</div>

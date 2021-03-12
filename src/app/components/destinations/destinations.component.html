@@ -1,0 +1,142 @@
+<!-- slider_area_start -->
+<div class="bradcam_area bradcam_bg_2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Destinations</h3>
+                    <p>Pixel perfect design with awesome contents</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider_area_end -->
+
+
+
+<!-- popular_destination_area_start  -->
+<div class="popular_destination_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section_title text-center mb_70">
+                    <h3>Popular {{title}} Destinations</h3>
+                    <!-- <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="title=='Domestic'">
+            <div *ngFor="let tour of tours" class="col-lg-4 col-md-6" [hidden]="tour.international">
+                <div class="single_destination">
+                    <div class="thumb">
+                        <img style="height:180px;" src="{{tour.imageurl}}" alt="">
+                    </div>
+                    <div class="content">
+                        <p class="d-flex align-items-center"><a href="/search?tour={{tour.tourid}}">  {{tour.numpackage}} Packages</a> </p>                        
+                    </div>
+                    <div class="title">
+                        <h3>{{tour.name}}</h3>
+                        <p>Package Price Starting from</p>
+                        <h4>{{tour.minpackagecost|currency:'₹ '}} <span>per person</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="title=='International'">
+            <div *ngFor="let tour of tours" class="col-lg-4 col-md-6" [hidden]="!tour.international">
+                <div class="single_destination">
+                    <div class="thumb">
+                        <img style="height:180px;" src="{{tour.imageurl}}" alt="">
+                    </div>
+                    <div class="content">
+                        <p class="d-flex align-items-center"><a href="/search?tour={{tour.tourid}}">  {{tour.numpackage}} Packages</a> </p>                        
+                    </div>
+                    <div class="title">
+                        <h3>{{tour.name}}</h3>
+                        <p>Package Price Starting from</p>
+                        <h4>{{tour.minpackagecost|currency:'₹ '}} <span>per person</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- popular_destination_area_end  -->
+
+
+
+<!-- newletter_area_start  -->
+<div class="newletter_area overlay">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="newsletter_text">
+                            <h4>Subscribe Our Newsletter</h4>
+                            <p>Subscribe newsletter to get offers and about
+                                new places to discover.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mail_form">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="newsletter_field">
+                                        <input type="email" placeholder="Your mail" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="newsletter_btn">
+                                        <button class="boxed-btn4 " type="submit" >Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- newletter_area_end  -->
+
+
+<div class="travel_variation_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="assets/img/main/svg_icon/1.svg" alt="">
+                    </div>
+                    <h3>Comfortable Journey</h3>
+                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="assets/img/main/svg_icon/2.svg" alt="">
+                    </div>
+                    <h3>Luxuries Hotel</h3>
+                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_travel text-center">
+                    <div class="icon">
+                        <img src="assets/img/main/svg_icon/3.svg" alt="">
+                    </div>
+                    <h3>Travel Guide</h3>
+                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

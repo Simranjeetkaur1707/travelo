@@ -1,0 +1,59 @@
+/*!
+
+=========================================================
+* Material Dashboard Angular - v2.4.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard-angular2
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-angular2/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+ @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+ @import "admin/variables";
+ @import "admin/mixins";
+ @import "~bootstrap/scss/bootstrap";
+
+
+ // Core Components
+ @import "admin/buttons";
+ @import "admin/checkboxes";
+ @import "admin/radios";
+ @import "admin/forms";
+ @import "admin/input-group";
+ @import "admin/images";
+ @import "admin/navbar";
+ @import "admin/alerts";
+ @import "admin/type";
+ @import "admin/tabs";
+ @import "admin/tooltip";
+ @import "admin/popover";
+ @import "admin/dropdown";
+ @import "admin/togglebutton";
+ @import "admin/ripples";
+ @import "admin/footers";
+ @import "admin/sidebar-and-main-panel";
+ @import "admin/fixed-plugin";
+ @import "admin/tables";
+ @import "admin/misc";
+
+@import "admin/cards";
+@import "admin/cards/card-stats";
+@import "admin/cards/card-profile";
+@import "admin/cards/card-plain";
+
+ //plugin scss
+ @import "admin/plugins/animate";
+ @import "admin/plugins/chartist";
+ @import "admin/plugins/perfect-scrollbar";
+
+ @import "admin/responsive";
+
+@import "admin/angular-modal.scss";

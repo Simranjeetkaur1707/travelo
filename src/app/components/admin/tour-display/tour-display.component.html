@@ -1,0 +1,48 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Tour List</h4>
+                        <p class="card-category"><a href="/admin/tour/add">Add New Tour</a></p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>                                    
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Summary</th>
+                                        <th>Description</th>
+                                        <th>International</th>
+                                        <th>Featured</th>
+                                        <th>IsActive</th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let tour of tours">
+                                        <td>{{tour.tourid}}</td>
+                                        <td>{{tour.name}}</td>
+                                        <td>{{tour.title}}</td>
+                                        <td>{{tour.summary | slice:0:30}}...</td>
+                                        <td>{{tour.description | slice:0:30}}...</td>
+                                        <td>{{tour.international}}</td>
+                                        <td>{{tour.featured}}</td>
+                                        <td>{{tour.isactive}}</td>
+                                        <td><a href="/admin/tour/{{tour.tourid}}">View Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

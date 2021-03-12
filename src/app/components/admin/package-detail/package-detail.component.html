@@ -1,0 +1,129 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <form method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add Package</h4>
+                        <p class="card-category">Enter Package Details</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label>Tour</mat-label>
+                                    <mat-select [(ngModel)]="package.tourid" name="tourid">
+                                      <mat-option *ngFor="let tour of tours" [value]="tour.tourid">{{tour.name}}</mat-option>
+                                    </mat-select>                                    
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                  <mat-form-field>
+                                      <mat-label>Inclusions</mat-label>
+                                      <mat-select [(ngModel)]="package.inclusion"  multiple name="inclusion">
+                                        <mat-option *ngFor="let inclusion of inclusions" [value]="inclusion.name">{{inclusion.name}}</mat-option>
+                                      </mat-select>
+                                    </mat-form-field>                                      
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <mat-label>Package Category</mat-label>
+                                        <mat-select [(ngModel)]="package.category"  multiple name="category">
+                                          <mat-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</mat-option>
+                                        </mat-select>
+                                      </mat-form-field>                                      
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field>
+                                    <mat-label>Package Title</mat-label>
+                                    <input type="text" matInput placeholder="Title"  name="title" [(ngModel)]="package.title">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field>
+                                  <mat-label>Package Cost</mat-label>
+                                  <input type="text" matInput placeholder="Cost"  name="cost" [(ngModel)]="package.cost">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field>
+                                  <mat-label>Package Duration</mat-label>
+                                  <input type="text" matInput placeholder="Duration"  name="duration" [(ngModel)]="package.duration">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                                <mat-form-field>
+                                  <mat-label>Package Summary</mat-label>
+                                  <textarea matInput placeholder="Summary"  name="summary" [(ngModel)]="package.summary"></textarea>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                                <mat-form-field>
+                                  <mat-label>Package Description</mat-label>
+                                  <textarea  matInput placeholder="Description"  name="description" [(ngModel)]="package.description"></textarea>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-checkbox name="featured" [(ngModel)]="package.featured">Featured</mat-checkbox>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-checkbox name="isactive" [(ngModel)]="package.isactive">Is Active?</mat-checkbox>
+                            </div>
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="UpdatePackage();">Update Package</button>
+                          <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Upload Photos</h4>                      
+                  </div>
+                  <div class="card-body">
+                    <button type="button" mat-raised-button class="btn btn-danger btn-block" (click)="fileInput.click()">Choose File</button>
+                    <input hidden (change)="OnFileSelected($event)" multiple accept=".png,.jpg" #fileInput type="file" id="file">                    
+
+                    <div class="row">
+                      <div class="col-6 mt-2 " *ngFor="let url of downloadedFiles">
+                        <button type="button" class="close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>                        
+                        <img class="w-100" style="height:100px;" [src]="url">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title">Important Links</h4>                      
+                </div>
+                <div class="card-body">
+                    <a class="d-block" href="/admin/itinerary/{{package.packageid}}">Itineraries</a>
+                    <a class="d-block" href="/admin/breakup/{{package.packageid}}">Package Breakup Plan</a>
+                </div>
+            
+              </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

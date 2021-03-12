@@ -1,0 +1,99 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <form method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add Itinerary</h4>
+                        <p class="card-category">Enter Itinerary Details</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-label>Package</mat-label>
+                                        <input type="text" matInput placeholder="Package"  name="package" [value]="package.title" readonly>
+                                      </mat-form-field>
+                                    </div>
+                                <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-label>Day</mat-label>
+                                        <input type="text" matInput placeholder="Day"  name="day" [(ngModel)]="itinerary.day">
+                                      </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <mat-label>Highlight 1</mat-label>
+                                        <input type="text" matInput placeholder="Highlight 1"  name="highlight1" [(ngModel)]="itinerary.highlight1">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <mat-label>Highlight 2</mat-label>
+                                        <input type="text" matInput placeholder="Highlight 2"  name="highlight2" [(ngModel)]="itinerary.highlight2">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                                <mat-form-field>
+                                  <mat-label>Description</mat-label>
+                                  <textarea matInput placeholder="Description"  name="description" [(ngModel)]="itinerary.description"></textarea>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="AddItinerary();">Add Itinerary</button>
+                          <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Itinerary List</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <td>id</td>
+                                    <td>packageid</td>
+                                    <td>day</td>
+                                    <td>highlight1</td>
+                                    <td>highlight2</td>
+                                    <td>description</td>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let itinerary of itineraries">
+                                    <td>{{itinerary.id}}</td>
+                                    <td>{{itinerary.packageid}}</td>
+                                    <td>{{itinerary.day}}</td>
+                                    <td>{{itinerary.highlight1}}</td>
+                                    <td>{{itinerary.highlight2}}</td>
+                                    <td>{{itinerary.description}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+  

@@ -1,0 +1,64 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <form method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add Tour</h4>
+                        <p class="card-category">Enter Tour Details</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input type="text" matInput placeholder="Tour Name"  name="name" [(ngModel)]="tour.name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input type="text" matInput placeholder="Tour Title"  name="title" [(ngModel)]="tour.title">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <textarea matInput placeholder="Summary" name="summary" [(ngModel)]="tour.summary"></textarea>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <textarea matInput placeholder="Description" name="description" [(ngModel)]="tour.description"></textarea>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-checkbox name="international" [(ngModel)]="tour.international">International</mat-checkbox>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-checkbox name="featured" [(ngModel)]="tour.featured">Featured</mat-checkbox>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-checkbox name="isactive" [(ngModel)]="tour.isactive">Is Active?</mat-checkbox>
+                            </div>
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="AddTour();">Add Tour</button>
+                          <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

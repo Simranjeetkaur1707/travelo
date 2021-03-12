@@ -1,0 +1,105 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <form method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add Breakup</h4>
+                        <p class="card-category">Enter Breakup Details</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-label>Package</mat-label>
+                                        <input type="text" matInput placeholder="Package"  name="package" [value]="package.title" readonly>
+                                      </mat-form-field>
+                                    </div>
+                                <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-label>Location</mat-label>
+                                        <input type="text" matInput placeholder="Location"  name="Location" [(ngModel)]="breakup.location">
+                                      </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <mat-label>Arriving Hotel</mat-label>
+                                        <input type="text" matInput placeholder="Arriving Hotel"  name="arrivehotel" [(ngModel)]="breakup.arrivehotelid">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <mat-label>Departing Hotel</mat-label>
+                                        <input type="text" matInput placeholder="Departing Hotel"  name="departinghotel" [(ngModel)]="breakup.departhotelid">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                  <mat-label>Days</mat-label>
+                                  <textarea matInput placeholder="Days"  name="days" [(ngModel)]="breakup.days"></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                  <mat-label>Order ID</mat-label>
+                                  <textarea matInput placeholder="Order Id"  name="orderid" [(ngModel)]="breakup.orderid"></textarea>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="AddBreakup();">Add Breakup</button>
+                          <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Breakup List</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <td>Id</td>
+                                    <td>Packageid</td>
+                                    <td>Arrive Hotel Id</td>
+                                    <td>Depart Hotel Id</td>
+                                    <td>Days</td>
+                                    <td>Order Id</td>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let breakup of breakups">
+                                    <td>{{breakup.breakupid}}</td>
+                                    <td>{{breakup.packageid}}</td>
+                                    <td>{{breakup.arrivehotelid}}</td>
+                                    <td>{{breakup.departhotelid}}</td>
+                                    <td>{{breakup.days}}</td>
+                                    <td>{{breakup.orderid}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+  
